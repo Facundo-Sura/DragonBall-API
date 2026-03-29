@@ -1,16 +1,82 @@
-# React + Vite
+# DragonBall React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web de ejemplo construida con React y Vite para explorar personajes, planetas y transformaciones del universo Dragon Ball.
 
-Currently, two official plugins are available:
+## Qué hace este proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Lista personajes de Dragon Ball con paginación.
+- Permite buscar personajes por nombre.
+- Muestra detalles de cada personaje.
+- Presenta planetas y sus detalles.
+- Muestra transformaciones asociadas a los personajes.
+- Incluye manejo de estado con Redux Toolkit.
 
-## React Compiler
+## Estructura principal
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/main.jsx` - Punto de entrada de la aplicación.
+- `src/App.jsx` - Componente raíz con rutas y estructura general.
+- `src/pages/` - Vistas principales:
+  - `Landing.jsx`
+  - `Home.jsx`
+  - `Characters.jsx`
+  - `CharacterDetail.jsx`
+  - `Planets.jsx`
+  - `PlanetDetail.jsx`
+  - `Transformations.jsx`
+- `src/components/` - Componentes reutilizables:
+  - `CharacterCard.jsx`
+  - `PlanetCard.jsx`
+  - `TransformationCard.jsx`
+  - `SearchBar.jsx`
+  - `FilterBar.jsx`
+  - `Pagination.jsx`
+  - `Loading.jsx`
+  - `Error.jsx`
+  - `ImageModal.jsx`
+- `src/store/` - Configuración de Redux y slices:
+  - `charactersSlice.js`
+  - `characterDetailSlice.js`
+  - `planetsSlice.js`
+  - `planetDetailSlice.js`
+  - `transformationsSlice.js`
+- `src/api/dragonballApi.js` - Lógica de llamadas a la API.
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Instalar dependencias:
+   ```bash
+   npm install
+   ```
+2. Iniciar la aplicación en modo desarrollo:
+   ```bash
+   npm run dev
+   ```
+3. Abrir la URL que indica Vite, generalmente `http://localhost:5173`.
+
+## Producción
+
+Para generar una versión de producción:
+
+```bash
+npm run build
+```
+
+Para previsualizar el build:
+
+```bash
+npm run preview
+```
+
+## Dependencias clave
+
+- `react`
+- `react-dom`
+- `react-router-dom`
+- `@reduxjs/toolkit`
+- `react-redux`
+- `vite`
+
+## Notas
+
+- El proyecto está pensado como una demo de consumo de datos y navegación con React + Redux.
+- Puedes ampliar la aplicación añadiendo autenticación, filtros avanzados o detalles adicionales de personajes y planetas.
