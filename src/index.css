@@ -1424,3 +1424,292 @@ body {
 .flip-card-back .button {
   margin-top: auto;
 }
+
+.dragon-balls-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.dragon-ball-wrapper {
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.dragon-ball-wrapper:hover {
+  transform: scale(1.15) !important;
+  filter: brightness(1.2);
+}
+
+.dragon-ball {
+  position: relative;
+  border-radius: 50%;
+  box-shadow: 
+    inset -20px -20px 40px rgba(0, 0, 0, 0.5),
+    inset 20px 20px 40px rgba(255, 255, 255, 0.2),
+    0 0 30px currentColor,
+    0 0 60px currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dragon-ball-1 {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #ff6b35 30%, #cc0000 70%, #660000 100%);
+  color: rgba(255, 107, 53, 0.6);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  animation: float-center 3s ease-in-out infinite;
+}
+
+@keyframes float-center {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+/* Todas las bolas del mismo tamaño */
+.dragon-ball-1, .dragon-ball-2, .dragon-ball-3, .dragon-ball-4, .dragon-ball-5, .dragon-ball-6, .dragon-ball-7 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #ff6b35 30%, #cc0000 70%, #660000 100%);
+  color: rgba(255, 107, 53, 0.5);
+  animation: float 3s ease-in-out infinite;
+}
+
+.dragon-ball-1 {
+  width: 100px;
+  height: 100px;
+  color: rgba(255, 107, 53, 0.6);
+}
+
+.dragon-ball-2 { animation-delay: -0.5s; }
+.dragon-ball-3 { animation-delay: -1s; }
+.dragon-ball-4 { animation-delay: -1.5s; }
+.dragon-ball-5 { animation-delay: -2s; }
+.dragon-ball-6 { animation-delay: -2.5s; }
+.dragon-ball-7 { animation-delay: -3s; }
+
+.dragon-ball-shine {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 25%;
+  height: 25%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  animation: shineBlink 2s ease-in-out infinite;
+}
+
+.dragon-ball-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  height: 130%;
+  border-radius: 50%;
+  background: radial-gradient(circle, currentColor 0%, transparent 70%);
+  opacity: 0.4;
+  animation: glowPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.stars-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star-icon {
+  color: #ffcc00;
+  text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+  position: relative;
+  z-index: 2;
+}
+
+.star-icon.star-1,
+.star-icon.star-2,
+.star-icon.star-3,
+.star-icon.star-4,
+.star-icon.star-5,
+.star-icon.star-6,
+.star-icon.star-7 {
+  font-size: 1.8rem;
+}
+
+.dragon-ball-2 .stars-container,
+.dragon-ball-3 .stars-container,
+.dragon-ball-4 .stars-container,
+.dragon-ball-5 .stars-container,
+.dragon-ball-6 .stars-container,
+.dragon-ball-7 .stars-container {
+  transform: scale(0.8);
+}
+
+/* Sistema de órbitas - 6 bolas evenly spaced en círculo */
+.orbit-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -150px;
+  animation: orbit 20s linear infinite;
+}
+
+/* Distribución uniforme - cada órbita tiene un delay diferente */
+.orbit-1 {
+  animation-delay: 0s;
+}
+
+.orbit-2 {
+  animation-delay: -3.33s;
+}
+
+.orbit-3 {
+  animation-delay: -6.66s;
+}
+
+.orbit-4 {
+  animation-delay: -10s;
+}
+
+.orbit-5 {
+  animation-delay: -13.33s;
+}
+
+.orbit-6 {
+  animation-delay: -16.66s;
+}
+
+/* La bola se posiciona en el borde derecho del círculo */
+.orbit-wrapper .dragon-ball-wrapper {
+  position: absolute;
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.orbit-ring {
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  animation: orbit 16s linear infinite;
+}
+
+.dragon-ball-6-wrapper .dragon-ball-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-ring-1 { width: 180px; height: 180px; }
+.orbit-ring-2 { width: 260px; height: 260px; }
+.orbit-ring-3 { width: 340px; height: 340px; }
+.orbit-ring-4 { width: 420px; height: 420px; }
+.orbit-ring-5 { width: 500px; height: 500px; }
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes shineBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.9); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.landing-new-title {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff6600, #ffcc00, #ff3300);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(255, 100, 0, 0.5));
+  text-align: center;
+  z-index: 20;
+}
+
+.landing-new-subtitle {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  z-index: 20;
+}
+
+.landing-new-instructions {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  text-align: center;
+  z-index: 20;
+}
+
+.click-hint {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  animation: pulse 2s ease-in-out infinite;
+  z-index: 20;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
