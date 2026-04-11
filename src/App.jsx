@@ -41,7 +41,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div style={{ paddingTop: '52px' }}>
+      <div className="main-content">
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/planets" element={<Planets />} />

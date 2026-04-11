@@ -1,0 +1,14 @@
+/* ========================================
+   ESTILOS DEL PROYECTO - Import principal
+   ======================================== */
+
+/* Global */
+@import './global.css';
+
+/* Página Landing */
+@import './Landing.css';
+
+/* Pages adicionales (por crear) */
+/* @import './Characters.css'; */
+/* @import './Planets.css'; */
+/* @import './Transformations.css'; */

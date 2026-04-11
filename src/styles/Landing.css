@@ -1,0 +1,337 @@
+/* ========================================
+   ESTILOS LANDING PAGE
+   ======================================== */
+
+/* Contenedor principal */
+.landing-container {
+  position: relative;
+  min-height: calc(100vh - 52px);
+  /* Mitad arriba cielo, mitad abajo mar */
+  background: linear-gradient(180deg, 
+    #87CEEB 0%,      /* Cielo celeste arriba */
+    #87CEEB 50%,   /* Cielo hasta mitad */
+    #1E90FF 50%,    /* Mar empieza */
+    #006994 100%    /* Mar profundo */
+  );
+  overflow: hidden;
+}
+
+/* ===== CIELO ===== */
+.clouds {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50px;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+}
+
+.cloud-1 {
+  width: 80px;
+  height: 30px;
+  top: 20%;
+  left: 10%;
+  animation: cloud-drift 18s linear infinite;
+}
+
+.cloud-1::before {
+  width: 40px;
+  height: 40px;
+  top: -20px;
+  left: 10px;
+}
+
+.cloud-1::after {
+  width: 35px;
+  height: 35px;
+  top: -15px;
+  left: 35px;
+}
+
+.cloud-2 {
+  width: 100px;
+  height: 35px;
+  top: 40%;
+  left: 40%;
+  animation: cloud-drift 22s linear infinite;
+  animation-delay: -8s;
+}
+
+.cloud-2::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 15px;
+}
+
+.cloud-2::after {
+  width: 40px;
+  height: 40px;
+  top: -20px;
+  left: 50px;
+}
+
+.cloud-3 {
+  width: 70px;
+  height: 25px;
+  top: 60%;
+  left: 65%;
+  animation: cloud-drift 15s linear infinite;
+  animation-delay: -12s;
+}
+
+.cloud-3::before {
+  width: 35px;
+  height: 35px;
+  top: -18px;
+  left: 8px;
+}
+
+.cloud-3::after {
+  width: 30px;
+  height: 30px;
+  top: -12px;
+  left: 28px;
+}
+
+@keyframes cloud-drift {
+  from { transform: translateX(-200px); }
+  to { transform: translateX(calc(100vw + 200px)); }
+}
+
+/* ===== MAR ===== */
+.sea-waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 120px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23006994" d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z"/></svg>');
+  background-size: 600px 120px;
+  animation: sea-move 6s linear infinite;
+}
+
+.sea-waves-2 {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 200%;
+  height: 100px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%231E90FF" d="M0,60 C200,0 400,120 600,60 C800,0 1000,120 1200,60 L1200,120 L0,120 Z"/></svg>');
+  background-size: 500px 100px;
+  animation: sea-move 8s linear infinite reverse;
+}
+
+@keyframes sea-move {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== TÍTULOS ===== */
+.landing-new-title {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff6600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 100, 0, 0.8);
+  text-align: center;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+}
+
+.landing-new-subtitle {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+}
+
+.landing-new-instructions {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  text-align: center;
+  z-index: 20;
+}
+
+/* ===== ESFERAS ===== */
+.dragon-balls-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.dragon-balls-container > * {
+  pointer-events: auto;
+}
+
+/* Bola 1 - CENTRADA FIJA */
+.dragon-balls-container > .dragon-ball-wrapper:first-child {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Wrapper de cada esfera */
+.dragon-ball-wrapper {
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
+  position: relative;
+}
+
+.dragon-ball-wrapper:hover {
+  transform: scale(1.08);
+  filter: brightness(1.15);
+}
+
+/* Las bolas */
+.dragon-ball {
+  border-radius: 50%;
+  box-shadow: 
+    inset -20px -20px 40px rgba(0, 0, 0, 0.5),
+    inset 20px 20px 40px rgba(255, 255, 255, 0.2),
+    0 0 30px currentColor,
+    0 0 60px currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dragon-ball-1,
+.dragon-ball-2,
+.dragon-ball-3,
+.dragon-ball-4,
+.dragon-ball-5,
+.dragon-ball-6,
+.dragon-ball-7 {
+  width: 65px;
+  height: 65px;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #ff6b35 30%, #cc0000 70%, #660000 100%);
+  color: rgba(255, 107, 53, 0.5);
+}
+
+/* Brillo en cada bola */
+.dragon-ball-shine {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 25%;
+  height: 25%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+}
+
+.dragon-ball-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  height: 130%;
+  border-radius: 50%;
+  background: radial-gradient(circle, currentColor 0%, transparent 70%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Estrellas dentro de las bolas */
+.stars-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star-icon {
+  color: #ffcc00;
+  text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+  position: relative;
+  z-index: 2;
+  font-size: 1rem;
+}
+
+/* ===== ÓRBITAS ===== */
+.orbit-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  animation: rotate-orbit 30s linear infinite;
+}
+
+.orbit-wrapper .dragon-ball-wrapper {
+  position: absolute;
+  top: 50%;
+  right: -32px;
+  transform: translateY(-50%);
+}
+
+/* Distribución evenly */
+.dragon-ball-2-wrapper { animation: rotate-orbit 30s linear infinite; animation-delay: -5s; }
+.dragon-ball-3-wrapper { animation: rotate-orbit 30s linear infinite; animation-delay: -10s; }
+.dragon-ball-4-wrapper { animation: rotate-orbit 30s linear infinite; animation-delay: -15s; }
+.dragon-ball-5-wrapper { animation: rotate-orbit 30s linear infinite; animation-delay: -20s; }
+.dragon-ball-6-wrapper { animation: rotate-orbit 30s linear infinite; animation-delay: -25s; }
+.dragon-ball-7-wrapper { animation: rotate-orbit 30s linear infinite; animation-delay: -30s; }
+
+@keyframes rotate-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Click hint */
+.click-hint {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  animation: pulse 2s ease-in-out infinite;
+  z-index: 20;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}

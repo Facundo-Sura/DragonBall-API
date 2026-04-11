@@ -1,67 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
 
 function Landing() {
   const navigate = useNavigate();
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const stars = [];
-    const starCount = 150;
-
-    for (let i = 0; i < starCount; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 0.5,
-        speed: Math.random() * 0.3 + 0.1,
-        opacity: Math.random() * 0.5 + 0.3
-      });
-    }
-
-    let animationId;
-
-    const animate = () => {
-      ctx.fillStyle = 'rgba(10, 10, 26, 0.15)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      stars.forEach(star => {
-        star.x -= star.speed;
-        if (star.x < 0) {
-          star.x = canvas.width;
-          star.y = Math.random() * canvas.height;
-        }
-        
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
-        ctx.fill();
-      });
-
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
+  
   const handleSphereClick = (starCount) => {
     switch (starCount) {
       case 1:
@@ -124,7 +65,16 @@ function Landing() {
 
   return (
     <div className="landing-container">
-      <canvas ref={canvasRef} className="stars-canvas" />
+      {/* Nubes en el cielo (mitad superior) */}
+      <div className="clouds">
+        <div className="cloud cloud-1"></div>
+        <div className="cloud cloud-2"></div>
+        <div className="cloud cloud-3"></div>
+      </div>
+      
+      {/* Mar con olas (mitad inferior) */}
+      <div className="sea-waves-2"></div>
+      <div className="sea-waves"></div>
       
       <h1 className="landing-new-title">Dragon Ball Universe</h1>
       <p className="landing-new-subtitle">Colecciona las 7 bolas del dragón</p>
@@ -146,7 +96,7 @@ function Landing() {
 
         {/* Orbiting balls - cada uno en su propia órbita */}
         {/* Ball 2 - 2 estrellas */}
-        <div className="orbit-wrapper orbit-1">
+        <div className="orbit-wrapper dragon-ball-2-wrapper">
           <div className="dragon-ball-wrapper" onClick={() => handleSphereClick(2)}>
             <div className="dragon-ball dragon-ball-2">
               <div className="dragon-ball-shine"></div>
@@ -159,7 +109,7 @@ function Landing() {
         </div>
 
         {/* Ball 3 - 3 estrellas */}
-        <div className="orbit-wrapper orbit-2">
+        <div className="orbit-wrapper dragon-ball-3-wrapper">
           <div className="dragon-ball-wrapper" onClick={() => handleSphereClick(3)}>
             <div className="dragon-ball dragon-ball-3">
               <div className="dragon-ball-shine"></div>
@@ -172,7 +122,7 @@ function Landing() {
         </div>
 
         {/* Ball 4 - 4 estrellas */}
-        <div className="orbit-wrapper orbit-3">
+        <div className="orbit-wrapper dragon-ball-4-wrapper">
           <div className="dragon-ball-wrapper" onClick={() => handleSphereClick(4)}>
             <div className="dragon-ball dragon-ball-4">
               <div className="dragon-ball-shine"></div>
@@ -185,7 +135,7 @@ function Landing() {
         </div>
 
         {/* Ball 5 - 5 estrellas */}
-        <div className="orbit-wrapper orbit-4">
+        <div className="orbit-wrapper dragon-ball-5-wrapper">
           <div className="dragon-ball-wrapper" onClick={() => handleSphereClick(5)}>
             <div className="dragon-ball dragon-ball-5">
               <div className="dragon-ball-shine"></div>
@@ -198,7 +148,7 @@ function Landing() {
         </div>
 
         {/* Ball 6 - 6 estrellas */}
-        <div className="orbit-wrapper orbit-5">
+        <div className="orbit-wrapper dragon-ball-6-wrapper">
           <div className="dragon-ball-wrapper" onClick={() => handleSphereClick(6)}>
             <div className="dragon-ball dragon-ball-6">
               <div className="dragon-ball-shine"></div>
@@ -211,7 +161,7 @@ function Landing() {
         </div>
 
         {/* Ball 7 - 7 estrellas */}
-        <div className="orbit-wrapper orbit-6">
+        <div className="orbit-wrapper dragon-ball-7-wrapper">
           <div className="dragon-ball-wrapper" onClick={() => handleSphereClick(7)}>
             <div className="dragon-ball dragon-ball-7">
               <div className="dragon-ball-shine"></div>
